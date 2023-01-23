@@ -22,19 +22,28 @@
         return (
           <ul>
             {props.friends.map((x) => (
-              <li>{x}</li>
+              <li key={x}>{x}</li>
             ))}
           </ul>
         );
       }
 
-      function App() {
-        const friends = ["Alpha", "Beta", "Gamma", "Theta", "Omega"];
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
 
-        return <FriendsList friends={friends} />;
+          this.state = {
+            friends: ["Alpha", "Beta", "Gamma", "Theta", "Omega"],
+          };
+        }
+
+        render() {
+          return <FriendsList friends={this.state.friends} />;
+        }
       }
 
       const root = document.getElementById("root");
+
       ReactDOM.render(<App />, root);
     </script>
   </body>
