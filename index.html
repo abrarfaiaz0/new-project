@@ -12,27 +12,30 @@
       src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
       crossorigin
     ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Document</title>
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      function HandleComponent(props) {
-        const name = "asdasd";
-
-        return React.createElement("h1", null, props.handle);
+    <script type="text/babel">
+      function FriendsList(props) {
+        return (
+          <ul>
+            {props.friends.map((x) => (
+              <li>{x}</li>
+            ))}
+          </ul>
+        );
       }
-      function NameComponent(props) {
-        return React.createElement("h2", null, props.name);
+
+      function App() {
+        const friends = ["Alpha", "Beta", "Gamma", "Theta", "Omega"];
+
+        return <FriendsList friends={friends} />;
       }
 
-      const elementnew = React.createElement(
-        "div",
-        { id: "pool" },
-        HandleComponent({ handle: "Faiazaasda" }),
-        React.createElement(NameComponent, { name: "Abrar" })
-      );
-      ReactDOM.render(elementnew, document.getElementById("root"));
+      const root = document.getElementById("root");
+      ReactDOM.render(<App />, root);
     </script>
   </body>
 </html>
