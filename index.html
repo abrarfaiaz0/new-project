@@ -21,37 +21,31 @@
     <script type="text/babel">
       function ActiveFriendsList(props) {
         return (
-          <React.Fragment>
-            <ul>
-              {props.list.map((x) => (
-                <li key={x}>
-                  <span className="activeFriends">{x}</span>
-                  <button onClick={() => props.onRemoveFriend(x)}>
-                    Remove
-                  </button>
-                  <button onClick={() => props.onDeactivateFriend(x)}>
-                    Deactivate
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </React.Fragment>
+          <ul>
+            {props.list.map((x) => (
+              <li key={x}>
+                <span className="activeFriends">{x}</span>
+                <button onClick={() => props.onRemoveFriend(x)}>Remove</button>
+                <button onClick={() => props.onDeactivateFriend(x)}>
+                  Deactivate
+                </button>
+              </li>
+            ))}
+          </ul>
         );
       }
       function InactiveFriendsList(props) {
         return (
-          <React.Fragment>
-            <ul>
-              {props.list.map((x) => (
-                <li key={x}>
-                  <span className="inactiveFriends">{x}</span>
-                  <button onClick={() => props.onActivateFriend(x)}>
-                    Activate
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </React.Fragment>
+          <ul>
+            {props.list.map((x) => (
+              <li key={x}>
+                <span className="inactiveFriends">{x}</span>
+                <button onClick={() => props.onActivateFriend(x)}>
+                  Activate
+                </button>
+              </li>
+            ))}
+          </ul>
         );
       }
 
